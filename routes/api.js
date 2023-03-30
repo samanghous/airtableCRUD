@@ -5,6 +5,7 @@ import { updateTable } from "../controllers/updateTable.js";
 import { deleteInTable } from "../controllers/deleteInTable.js";
 import { sendMailAPI } from "../controllers/sendMailAPI.js";
 import { sendAttachm } from "../controllers/sendAttachm.js";
+import { uploadDrive } from "../controllers/uploadDrive.js";
 
 const router = express.Router();
 
@@ -17,5 +18,6 @@ router.delete("/deleteInTable", deleteInTable);
 // send mail
 router.get("/sendMailAPI", sendMailAPI);
 router.get("/sendAttachm", sendAttachm);
+router.get("/uploadDrive", uploadDrive);
 
 export default router;

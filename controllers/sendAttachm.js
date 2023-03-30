@@ -12,13 +12,13 @@ let html_text = ''
 
 // These id's and secrets should come from .env file.
 const CLIENT_ID = process.env.CLIENT_ID ;
-const CLEINT_SECRET = process.env.CLEINT_SECRET ;
+const CLIENT_SECRET = process.env.CLIENT_SECRET ;
 const REDIRECT_URI = process.env.REDIRECT_URI ;
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN ;
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENT_ID,
-  CLEINT_SECRET,
+  CLIENT_SECRET,
   REDIRECT_URI
 );
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
@@ -33,13 +33,13 @@ async function sendMail() {
         type: 'OAuth2',
         user: process.env.EMAIL,
         clientId: CLIENT_ID,
-        clientSecret: CLEINT_SECRET,
+        clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
         accessToken: accessToken,
       },
     });
 
-    let file = await fs.promises.readFile('./files/samplefile.pdf', 'utf8');
+    let file = await fs.promises.readFile('./files/wordfile1.docx');
 
     const mailOptions = {
       from: process.env.EMAIL,
@@ -48,7 +48,7 @@ async function sendMail() {
       text: mail_text,
       html: '<h1>'+html_text+'</h1>',
       attachments: [{
-        filename: 'samplefile.pdf',
+        filename: 'wordfile1.docx',
         content: file
       }],
     };
