@@ -11,6 +11,8 @@ import { uploadDriveFolder } from "../controllers/uploadDriveFolder.js";
 import { deleteFileDrive } from "../controllers/deleteFileDrive.js";
 // puppeteer
 import { extractHTML } from "../controllers/puppeteer/extractHTML.js";
+// pdf reader
+import { pdfRead } from "../controllers/pdf/pdfRead.js";
 
 const router = express.Router();
 
@@ -32,5 +34,8 @@ router.get("/deleteFileDrive", deleteFileDrive);
 
 // puppeteer
 router.get("/extractHTML", extractHTML);
+
+// pdf read
+router.get("/pdfRead", pdfRead);
 
 export default router;
