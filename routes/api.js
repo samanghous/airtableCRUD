@@ -13,6 +13,7 @@ import { deleteFileDrive } from "../controllers/deleteFileDrive.js";
 import { extractHTML } from "../controllers/puppeteer/extractHTML.js";
 // pdf reader
 import { pdfRead } from "../controllers/pdf/pdfRead.js";
+import { pdfTask2 } from "../controllers/pdf/pdfTask2.js";
 
 const router = express.Router();
 
@@ -37,5 +38,6 @@ router.get("/extractHTML", extractHTML);
 
 // pdf read
 router.get("/pdfRead", pdfRead);
+router.get("/pdfTask2",pdfTask2);
 
 export default router;
