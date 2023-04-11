@@ -48,8 +48,8 @@ export const excelRead = async (req, res) => {
 
         const sheets = google.sheets({ version: 'v4', auth });
 
-        const spreadsheetId = 'YOUR_SPREADSHEET_ID';
-        const range = 'Sheet1!A1';
+        const spreadsheetId = '1k8nV2p2b-cmfsPWe9q7GoyV8wjmoQchTxeH243zZf2o';
+        const range = 'Sheet1!A1:N250';
         const newValue = values;
 
         sheets.spreadsheets.values.update({
