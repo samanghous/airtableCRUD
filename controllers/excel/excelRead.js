@@ -2,6 +2,11 @@ import Excel from 'exceljs';
 import fs from 'fs';
 import { google } from 'googleapis';
 
+const CLIENT_ID = process.env.CLIENT_ID ;
+const CLIENT_SECRET = process.env.CLIENT_SECRET ;
+const REDIRECT_URI = process.env.REDIRECT_URI ;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN_SHEET ;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN_SHEET ;
 
 export const excelRead = async (req, res) => {
     try {
@@ -45,14 +50,14 @@ export const excelRead = async (req, res) => {
 
         const spreadsheetId = 'YOUR_SPREADSHEET_ID';
         const range = 'Sheet1!A1';
-        const newValue = 'New value';
+        const newValue = values;
 
         sheets.spreadsheets.values.update({
             spreadsheetId,
             range,
             valueInputOption: 'USER_ENTERED',
             resource: {
-                values: [[newValue]],
+                values: newValue,
             },
         }, (err, res) => {
             if (err) {
