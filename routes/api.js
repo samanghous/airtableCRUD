@@ -14,6 +14,8 @@ import { extractHTML } from "../controllers/puppeteer/extractHTML.js";
 // pdf reader
 import { pdfRead } from "../controllers/pdf/pdfRead.js";
 import { pdfTask2 } from "../controllers/pdf/pdfTask2.js";
+// excel read
+import {excelRead} from "../controllers/excel/excelRead.js";
 
 const router = express.Router();
 
@@ -39,5 +41,8 @@ router.get("/extractHTML", extractHTML);
 // pdf read
 router.get("/pdfRead", pdfRead);
 router.get("/pdfTask2",pdfTask2);
+
+// excel read
+router.get("/excelRead",excelRead);
 
 export default router;
